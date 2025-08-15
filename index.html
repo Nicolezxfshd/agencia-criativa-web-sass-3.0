@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Agência Criativa Web</title>
+ <link rel="stylesheet" href="dist/css/style.css">
+  <style>
+    /* ===== ESTILOS ===== */
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
+    body {
+      background: linear-gradient(135deg, #f5ecd7 0%, #f3e6c9 100%);
+      font-family: 'Poppins', 'Segoe UI', Arial, sans-serif;
+      color: #22223b;
+      min-height: 100vh;
+      line-height: 1.6;
+      scroll-behavior: smooth;
+    }
+
+    a { color: #007BFF; text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    header {
+      background-color: #007BFF;
+      color: white;
+      padding: 20px;
+      text-align: center;
+    }
+
+    nav {
+      background-color: #f8f9fa;
+      padding: 10px;
+      text-align: center;
+    }
+
+    .main-nav {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 1.2vw;
+      margin: 1.2rem 0 1.5rem 0;
+      flex-wrap: nowrap;
+      font-size: 1.5rem;
+      font-family: 'Balqis', cursive;
+      background: linear-gradient(90deg, #bfae99 0%, #a8977b 100%);
+      padding: 0.5rem 0;
+      border-radius: 1.5rem;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+      position: relative;
+    }
+
+    .main-nav__btn, .nav-btn, .servico-btn {
+      background: #ffd9b3;
+      color: #b85c00;
+      border: none;
+      border-radius: 1.5rem;
+      padding: 0.7em 1.5em;
+      font-size: 1em;
+      font-family: 'Poppins', 'Segoe UI', Arial, sans-serif;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background 0.2s, color 0.2s, box-shadow 0.2s;
+      box-shadow: 0 1px 4px rgba(0,0,0,0.04);
+      margin: 0.4em 0.5em;
+      text-decoration: none;
+      letter-spacing: 0.04em;
+    }
+
+    .main-nav__btn:hover, .main-nav__btn:focus,
+    .nav-btn:hover, .nav-btn:focus,
+    .servico-btn:hover, .servico-btn:focus {
+      background: #ffb366;
+      color: #fff;
+      box-shadow: 0 2px 8px rgba(184,92,0,0.10);
+    }
+
+    .menu-toggle {
+      display: none;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      width: 2.5rem;
+      height: 2.5rem;
+      cursor: pointer;
+      margin-left: 1vw;
+    }
+
+    .menu-toggle span {
+      display: block;
+      width: 2rem;
+      height: 0.3rem;
+      background: #007BFF;
+      margin: 0.3rem 0;
+      border-radius: 0.2rem;
+      transition: 0.3s;
+    }
+
+    .banner {
+      text-align: center;
+    }
+
+    .banner__img {
+      display: block;
+      margin: 30px auto 20px auto;
+      max-width: 600px;
+      width: 90vw;
+      height: auto;
+      border-radius: 12px;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+    }
+
+    .servicos {
+      margin: 2rem 0;
+    }
+
+    .servicos__titulo {
+      font-size: 2rem;
+      font-family: 'Balqis', cursive;
+      margin-bottom: 1.2rem;
+    }
+
+    .servicos__lista {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      padding: 0;
+      list-style: none;
+      justify-content: flex-start;
+    }
+
+    .servicos__item {
+      background: #f8f9fa;
+      color: #22223b;
+      border-radius: 1.5rem;
+      padding: 0.7em 1.2em;
+      text-align: center;
+      font-weight: 600;
+      font-family: 'Poppins', 'Segoe UI', Arial, sans-serif;
+      font-size: 1em;
+      letter-spacing: 0.04em;
+      box-shadow: 0 1px 4px rgba(0,0,0,0.04);
+      white-space: nowrap;
+      cursor: pointer;
+      transition: background 0.2s, color 0.2s, box-shadow 0.2s;
+    }
+
+    .contato {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      min-height: 80vh;
+      width: 100vw;
+    }
+
+    .contato__form {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 1.1em;
+      max-width: 400px;
+      width: 100%;
+      margin: 2.5rem auto 2rem auto;
+      background: #fff;
+      border-radius: 1.2em;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+      padding: 2em 1.5em;
+    }
+
+    .contato__label, .contato__input, .contato__textarea, .contato__button {
+      width: 100%;
+      max-width: 400px;
+      box-sizing: border-box;
+    }
+
+    .contato__input, .contato__textarea {
+      padding: 0.7em 1em;
+      border: 1.5px solid #e0c9a6;
+      border-radius: 0.7em;
+      font-size: 1em;
+      background: #fff8f0;
+      box-shadow: 0 1px 4px rgba(0,0,0,0.03);
+    }
+
+    .contato__textarea {
+      min-height: 120px;
+      resize: vertical;
+    }
+
+    .contato__button {
+      text-align: center;
+      background: #ffd9b3;
+      color: #b85c00;
+      border: none;
+      border-radius: 1.5rem;
+      padding: 0.7em 1.5em;
+      font-size: 1em;
+      font-weight: 600;
+      cursor: pointer;
+      box-shadow: 0 1px 4px rgba(0,0,0,0.04);
+      margin-top: 0.5em;
+      transition: background 0.2s, color 0.2s, box-shadow 0.2s;
+    }
+
+    .contato__button:hover {
+      background: #ffb366;
+      color: #fff;
+      box-shadow: 0 2px 8px rgba(184,92,0,0.10);
+    }
+
+    @media (max-width: 700px) {
+      .main-nav { flex-direction: column; align-items: flex-start; gap: 0; }
+      .main-nav__btn, .nav-btn, .servico-btn { width: 100%; border-radius: 0; text-align: left; }
+      .menu-toggle { display: flex; position: absolute; top: 0.2rem; right: 1vw; z-index: 20; }
+      .servicos__lista { flex-direction: column; gap: 12px; }
+      .servicos__item { width: 100%; white-space: normal; padding: 0.7em 1.1em; }
+    }
+  </style>
+</head>
+<body>
+  <nav class="main-nav" id="main-nav">
+    <button class="menu-toggle" id="menu-toggle" aria-label="Abrir menu">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+    <a href="#home" class="main-nav__btn">Home</a>
+    <a href="#sobre" class="main-nav__btn">Sobre Nós</a>
+    <a href="#servicos" class="main-nav__btn">Serviços</a>
+    <a href="#depoimentos" class="main-nav__btn">Depoimentos</a>
+    <a href="#contato" class="main-nav__btn">Contato</a>
+  </nav>
+
+  <main>
+    <section id="home" class="banner">
+      <img src="BANNER.png" alt="Banner Agência Criativa" class="banner__img"/>
+      <h1>Home</h1>
+      <p>Transformamos ideias em experiências inesquecíveis. Combinamos criatividade, estratégia e tecnologia para levar a sua marca mais longe.<br />✨ O nosso diferencial? Soluções personalizadas, atendimento próximo e resultados reais.</p>
+    </section>
+
+    <section id="sobre" class="sobre">
+      <h1>Sobre nós</h1>
+      <p>Somos uma agência apaixonada por inovação, design e conexão entre marcas e pessoas. Desde o início, acreditamos que cada projeto é uma oportunidade de fazer algo único.</p>
+      <ul>
+        <li><strong>Nossos Valores:</strong></li>
+        <li>Criatividade com propósito</li>
+        <li>Compromisso com resultados</li>
+        <li>Comunicação transparente</li>
+        <li>Inovação contínua</li>
+        <li>Respeito e parceria com cada cliente</li>
+      </ul>
+    </section>
+
+    <section id="servicos" class="servicos">
+      <h1 class="servicos__titulo">Serviços</h1>
+      <ul class="servicos__lista">
+        <li class="servicos__item">Design Gráfico</li>
+        <li class="servicos__item">Desenvolvimento Web</li>
+        <li class="servicos__item">Marketing Digital</li>
+        <li class="servicos__item">Consultoria Estratégica</li>
+        <li class="servicos__item">Produção de Conteúdo</li>
+      </ul>
+    </section>
+
+    <section id="depoimentos" class="depoimentos">
+      <h1>Depoimentos (fictícios)</h1>
+      <ul>
+        <li>"A Agência Criativa transformou nossa presença online! O site ficou incrível e os resultados foram além do esperado." - Marcos</li>
+        <li>"A equipe é super atenciosa e criativa. Eles realmente entendem as necessidades do cliente." - Joana</li>
+        <li>"Recomendo a todos! Profissionais competentes e resultados visíveis." - Carlos</li>
+      </ul>
+    </section>
+
+    <section id="contato" class="contato">
+      <h2>Contato</h2>
+      <form class="contato__form">
+        <label for="nome" class="contato__label">Nome</label>
+        <input type="text" id="nome" name="nome" required class="contato__input"/>
+        <label for="email" class="contato__label">E-mail</label>
+        <input type="email" id="email" name="email" required class="contato__input"/>
+        <label for="mensagem" class="contato__label">Mensagem</label>
+        <textarea id="mensagem" name="mensagem" required class="contato__textarea"></textarea>
+        <button type="submit" class="contato__button">Enviar mensagem</button>
+      </form>
+    </section>
+  </main>
+
+  <script>
+    const menuToggle = document.getElementById("menu-toggle");
+    const mainNav = document.getElementById("main-nav");
+
+    menuToggle.addEventListener("click", () => {
+      mainNav.classList.toggle("menu--ativo");
+    });
+  </script>
+</body>
+</html>

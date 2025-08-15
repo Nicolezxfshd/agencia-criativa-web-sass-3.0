@@ -1,0 +1,42 @@
+// 🎨 Cores principais
+$cor-primaria: #007BFF;
+$cor-secundaria: #ffd9b3;
+$cor-hover: #ffb366;
+$cor-fonte-principal: #22223b;
+$cor-gradiente-inicio: #f5ecd7;
+$cor-gradiente-fim: #f3e6c9;
+$cor-banner-gradiente-inicio: #bfae99;
+$cor-banner-gradiente-fim: #a8977b;
+$cor-shadow: rgba(0, 0, 0, 0.04);
+$cor-shadow-hover: rgba(184, 92, 0, 0.10);
+$cor-borda-input: #e0c9a6;
+$cor-fundo-input: #fff8f0;
+
+// 🖋️ Fontes
+$fonte-titulo: 'Balqis', cursive;
+$fonte-padrao: 'Poppins', 'Segoe UI', Arial, sans-serif;
+
+// 📏 Espaçamentos
+$espacamento-xs: 0.2em;
+$espacamento-sm: 0.5em;
+$espacamento-md: 1em;
+$espacamento-lg: 1.5em;
+$espacamento-xl: 2rem;
+
+// 🟦 Bordas e radius
+$radius-padrao: 1.5rem;
+$radius-pequeno: 0.7em;
+
+// 🌫️ Sombras
+$sombra-padrao: 0 1px 4px $cor-shadow;
+$sombra-hover: 0 2px 8px $cor-shadow-hover;
+
+// 📐 Tamanhos responsivos
+$breakpoint-mobile: 700px;
+
+$fonte-titulo: 'Arial', sans-serif;
+$espacamento-sm: 0.8rem;
+$radius-padrao: 8px;
+$cor-banner-gradiente-inicio: #ff9a9e;
+$cor-banner-gradiente-fim: #fad0c4;
+

@@ -1,0 +1,95 @@
+@use 'variaveis' as *;
+// 📱 Responsividade
+@mixin responsivo($breakpoint) {
+  @media (max-width: $breakpoint) {
+    @content;
+  }
+}
+// _mixins.scss
+@mixin tablet {
+  @media (min-width: 600px) and (max-width: 1024px) {
+    @content;
+  }
+}
+@mixin celular {
+  @media (max-width: 600px) {
+    @content;
+  }
+}
+
+@mixin laptop {
+  @media (min-width: 1024px) and (max-width: 1440px) {
+    @content;
+  }
+}
+
+@mixin desktop-grande {
+  @media (min-width: 1440px) {
+    @content;
+  }
+}
+
+.banner {
+  font-size: 2rem;
+
+  @include celular {
+    font-size: 1.2rem;
+  }
+
+  @include tablet {
+    font-size: 1.5rem;
+  }
+
+  @include laptop {
+    font-size: 1.8rem;
+  }
+
+  @include desktop-grande {
+    font-size: 2.2rem;
+  }
+}
+
+// 🎨 Gradiente de fundo
+@mixin gradiente-horizontal($cor-inicio, $cor-fim) {
+  background: linear-gradient(90deg, $cor-inicio 0%, $cor-fim 100%);
+}
+
+// 🌫️ Sombra padrão
+@mixin sombra-padrao {
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.04);
+}
+
+// 🌫️ Sombra ao passar o mouse
+@mixin sombra-hover {
+  box-shadow: 0 2px 8px rgba(184, 92, 0, 0.10);
+}
+
+// 🟨 Botão estilizado padrão
+@mixin botao-padrao {
+  background: $cor-secundaria;
+  color: $cor-primaria;
+  border: none;
+  border-radius: $radius-padrao;
+  padding: 0.7em 1.5em;
+  font-size: 1em;
+  font-family: $fonte-padrao;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s, box-shadow 0.2s;
+  @include sombra-padrao;
+
+  &:hover,
+  &:focus {
+    background: $cor-hover;
+    color: #fff;
+    @include sombra-hover;
+  }
+}
+
+// 🧩 Flexbox centralizado
+@mixin centralizar-flex($direcao: row) {
+  display: flex;
+  flex-direction: $direcao;
+  justify-content: center;
+  align-items: center;
+}

@@ -1,0 +1,62 @@
+@use 'mixins' as *;
+
+/* ======== BANNER ======== */
+.banner {
+  text-align: center;
+
+  @include celular {
+    text-align: left;
+    padding: 0 1rem;
+  }
+}
+
+.banner__img {
+  display: block;
+  margin: 30px auto 20px auto;
+  max-width: 600px;
+  width: 100%;
+  height: auto;
+  border-radius: 12px;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+
+  @include celular {
+    width: 100%;
+    margin: 20px auto;
+  }
+}
+
+/* ======== MENU ======== */
+.menu {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  background: #fff;
+  padding: 0.5rem 1rem;
+
+  @include celular {
+    flex-direction: column;
+    align-items: flex-start;
+    position: absolute;
+    top: 60px;
+    right: 0;
+    background: #fff;
+    width: 70%;
+    max-width: 250px;
+    padding: 1rem;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    transform: translateX(100%);
+  }
+
+
+.menu {
+  @include celular {
+    padding: 1em;
+    gap: 0.8em;
+  }
+}
+
+  @include celular {
+    padding: 1em;
+    gap: 0.8em;
+  }
+}

@@ -1,0 +1,271 @@
+@use 'variaveis' as *;
+@use 'mixins' as *;
+
+/* ======== MIXINS ======== */
+@mixin centralizar-flex($direcao: row) {
+  display: flex;
+  flex-direction: $direcao;
+  justify-content: center;
+  align-items: center;
+}
+
+@mixin gradiente-horizontal($cor1, $cor2) {
+  background: linear-gradient(to right, $cor1, $cor2);
+}
+
+@mixin sombra-padrao {
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+@mixin sombra-hover {
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+/* ======== RESET ======== */
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 100%;
+  scroll-behavior: smooth;
+}
+
+body {
+  background: linear-gradient(135deg, $cor-gradiente-inicio 0%, $cor-gradiente-fim 100%);
+  font-family: $fonte-padrao;
+  color: $cor-fonte-principal;
+  min-height: 100vh;
+  line-height: 1.6;
+}
+
+a {
+  color: #007BFF;
+  text-decoration: none;
+
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
+header {
+  background-color: #007BFF;
+  color: white;
+  padding: 20px;
+  text-align: center;
+}
+
+nav {
+  background-color: #f8f9fa;
+  padding: 10px;
+  text-align: center;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+/* ======== MAIN NAV ======== */
+.main-nav {
+  @include centralizar-flex;
+  flex-wrap: nowrap;
+  gap: 1.2vw;
+  font-size: 1.5rem;
+  font-family: $fonte-titulo;
+  padding: $espacamento-sm 0;
+  border-radius: $radius-padrao;
+  margin: 1.2rem 0 1.5rem 0;
+  @include gradiente-horizontal($cor-banner-gradiente-inicio, $cor-banner-gradiente-fim);
+  @include sombra-padrao;
+
+  &.responsive {
+    flex-direction: column;
+    align-items: flex-start;
+    flex-wrap: wrap;
+  }
+
+  @include responsivo($breakpoint-mobile) {
+    flex-direction: column;
+    align-items: flex-start;
+    flex-wrap: wrap;
+  }
+}
+
+/* ======== BOTÃO NAV ======== */
+.main-nav__btn,
+.nav-btn {
+  background: $cor-secundaria;
+  color: $cor-primaria;
+  border: none;
+  border-radius: $radius-padrao;
+  padding: 0.7em 1.5em;
+  font-size: 1em;
+  font-family: $fonte-padrao;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s, box-shadow 0.2s;
+  box-shadow: 0 1px 4px $cor-shadow;
+  margin: 0.4em 0.5em;
+  text-decoration: none;
+
+  &:hover,
+  &:focus {
+    background: $cor-hover;
+    color: #fff;
+    box-shadow: 0 2px 8px $cor-shadow-hover;
+  }
+
+  @include responsivo($breakpoint-mobile) {
+    width: 100vw;
+    border-radius: 0;
+    text-align: left;
+    padding: 1.2em 1.5em;
+    font-size: 1.1em;
+    border-bottom: 1px solid #e0e0e0;
+  }
+}
+
+/* ======== MENU MOBILE ======== */
+.menu-toggle {
+  display: none;
+  @include centralizar-flex(column);
+  width: 2.5rem;
+  height: 2.5rem;
+  cursor: pointer;
+  margin-left: 1vw;
+
+  @include responsivo($breakpoint-mobile) {
+    display: flex;
+    position: absolute;
+    top: 0.2rem;
+    right: 1vw;
+    z-index: 20;
+  }
+
+  &__bar,
+  span {
+    display: block;
+    width: 2rem;
+    height: 0.3rem;
+    background: $cor-primaria;
+    margin: 0.3rem 0;
+    border-radius: 0.2rem;
+    transition: 0.3s;
+  }
+}
+
+/* ======== BANNER ======== */
+.banner {
+  text-align: center;
+
+  &__img,
+  &-img {
+    display: block;
+    margin: 30px auto 20px auto;
+    max-width: 600px;
+    width: 90vw;
+    height: auto;
+    border-radius: 12px;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+  }
+}
+
+/* ======== SERVIÇOS ======== */
+.servicos {
+  margin: 2rem 0;
+
+  &__titulo {
+    font-size: 2rem;
+    font-family: $fonte-titulo;
+    margin-bottom: 1.2rem;
+  }
+
+  &__lista {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 14px;
+    padding: 0;
+    list-style: none;
+    justify-content: flex-start;
+
+    @include responsivo($breakpoint-mobile) {
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    ul {
+      overflow-x: auto;
+      white-space: nowrap;
+    }
+  }
+
+  &__item,
+  .servico-btn {
+    background: #f8f9fa;
+    color: $cor-fonte-principal;
+    border-radius: $radius-padrao;
+    padding: 0.7em 1.2em;
+    text-align: center;
+    font-weight: 600;
+    font-family: $fonte-padrao;
+    font-size: 1em;
+    letter-spacing: 0.04em;
+    white-space: nowrap;
+    cursor: pointer;
+    transition: background 0.2s, color 0.2s, box-shadow 0.2s;
+    @include sombra-padrao;
+
+    &:hover,
+    &:focus {
+      background: #e0e0e0;
+      color: $cor-fonte-principal;
+      @include sombra-hover;
+    }
+
+    @include responsivo($breakpoint-mobile) {
+      width: 100%;
+      white-space: normal;
+      font-size: 1em;
+      padding: 0.7em 1.1em;
+      margin: 0.2em 0.2em;
+    }
+  }
+}
+
+/* ======== CONTATO ======== */
+.contato {
+  @include centralizar-flex(column);
+
+  &__form,
+  .form-contato {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.1em;
+    max-width: 400px;
+    width: 100%;
+    margin: 2.5rem auto 2rem auto;
+
+    label,
+    input,
+    textarea,
+    button {
+      width: 100%;
+      max-width: 400px;
+      box-sizing: border-box;
+      text-align: left;
+      display: block;
+      margin-bottom: 0.8em;
+    }
+
+    input,
+    textarea {
+      margin-bottom: 0.8em;
+    }
+  }
+}
