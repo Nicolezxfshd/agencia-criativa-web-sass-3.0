@@ -1,21 +1,5 @@
-@charset "UTF-8";
-
-/* ====== IMPORT FONTES ====== */
+/* ===== FONTES E RESET ===== */
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
-
-/* ====== RESET BÁSICO ====== */
-*,
-*::before,
-*::after {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
-html {
-  font-size: 100%;
-  scroll-behavior: smooth;
-}
 
 body {
   background: linear-gradient(135deg, #f5ecd7 0%, #f3e6c9 100%);
@@ -23,33 +7,24 @@ body {
   color: #22223b;
   min-height: 100vh;
   line-height: 1.6;
+  scroll-behavior: smooth;
+  margin: 0;
+  padding: 0;
 }
 
-/* ====== LINKS ====== */
-a {
-  color: #007BFF;
-  text-decoration: none;
-}
-a:hover {
-  text-decoration: underline;
-}
+a { color: #007BFF; text-decoration: none; }
+a:hover { text-decoration: underline; }
 
-/* ====== HEADER ====== */
+/* ===== HEADER ===== */
 header {
   background-color: #007BFF;
   color: white;
   padding: 20px;
   text-align: center;
+  font-size: 1.2rem;
 }
 
-/* ====== NAV ====== */
-nav {
-  background-color: #f8f9fa;
-  padding: 10px;
-  text-align: center;
-}
-
-/* ====== MENU PRINCIPAL ====== */
+/* ===== NAV ===== */
 .main-nav {
   display: flex;
   justify-content: center;
@@ -60,43 +35,36 @@ nav {
   font-size: 1.5rem;
   font-family: 'Balqis', cursive;
   background: linear-gradient(90deg, #bfae99 0%, #a8977b 100%);
-  padding: 0.5rem 0;
+  padding: 0.5rem 1rem;
   border-radius: 1.5rem;
   box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+  position: relative;
 }
-.main-nav.responsive {
-  flex-direction: column;
-  align-items: flex-start;
-  gap: 0;
-}
-.main-nav__btn,
-.nav-btn {
+
+.main-nav__btn, .nav-btn, .servico-btn {
   background: #ffd9b3;
   color: #b85c00;
   border: none;
   border-radius: 1.5rem;
   padding: 0.7em 1.5em;
   font-size: 1em;
-  font-family: 'Poppins', 'Segoe UI', Arial, sans-serif;
   font-weight: 600;
   cursor: pointer;
-  transition: background 0.2s, color 0.2s, box-shadow 0.2s;
   box-shadow: 0 1px 4px rgba(0,0,0,0.04);
   margin: 0.4em 0.5em;
   text-decoration: none;
-}
-.main-nav__btn:hover,
-.main-nav__btn:focus,
-.nav-btn:hover,
-.nav-btn:focus {
-  background: #ffb366;
-  color: #fff;
-  box-shadow: 0 2px 8px rgba(184,92,0,0.1);
+  transition: background 0.2s, color 0.2s, box-shadow 0.2s;
 }
 
-/* ====== MENU MOBILE ====== */
+.main-nav__btn:hover, .nav-btn:hover, .servico-btn:hover {
+  background: #ffb366;
+  color: #fff;
+  box-shadow: 0 2px 8px rgba(184,92,0,0.10);
+}
+
+/* ===== HAMBURGER MENU ===== */
 .menu-toggle {
-  display: none;
+  display: none; /* aparece só em telas pequenas */
   flex-direction: column;
   justify-content: center;
   align-items: center;
@@ -105,7 +73,7 @@ nav {
   cursor: pointer;
   margin-left: 1vw;
 }
-.menu-toggle__bar,
+
 .menu-toggle span {
   display: block;
   width: 2rem;
@@ -116,40 +84,43 @@ nav {
   transition: 0.3s;
 }
 
-/* ====== BANNER ====== */
+/* ===== BANNER ===== */
 .banner {
   text-align: center;
 }
-.banner__img,
-.banner-img {
+
+.banner__img {
   display: block;
   margin: 30px auto 20px auto;
   max-width: 600px;
-  width: 90vw;
+  width: 90%;
   height: auto;
   border-radius: 12px;
   box-shadow: 0 2px 12px rgba(0,0,0,0.08);
 }
 
-/* ====== SERVIÇOS ====== */
+/* ===== SERVIÇOS ===== */
 .servicos {
   margin: 2rem 0;
 }
+
 .servicos__titulo {
   font-size: 2rem;
   font-family: 'Balqis', cursive;
   margin-bottom: 1.2rem;
+  text-align: center;
 }
+
 .servicos__lista {
   display: flex;
   flex-wrap: wrap;
   gap: 14px;
   padding: 0;
   list-style: none;
-  justify-content: flex-start;
+  justify-content: center;
 }
-.servicos__item,
-.servicos .servico-btn {
+
+.servicos__item {
   background: #f8f9fa;
   color: #22223b;
   border-radius: 1.5rem;
@@ -163,16 +134,8 @@ nav {
   cursor: pointer;
   transition: background 0.2s, color 0.2s, box-shadow 0.2s;
 }
-.servicos__item:hover,
-.servicos__item:focus,
-.servicos .servico-btn:hover,
-.servicos .servico-btn:focus {
-  background: #e0e0e0;
-  color: #22223b;
-  box-shadow: 0 2px 8px rgba(184,92,0,0.1);
-}
 
-/* ====== CONTATO ====== */
+/* ===== CONTATO ===== */
 .contato {
   display: flex;
   flex-direction: column;
@@ -181,8 +144,8 @@ nav {
   min-height: 80vh;
   width: 100vw;
 }
-.contato__form,
-.form-contato {
+
+.contato__form {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -195,22 +158,14 @@ nav {
   box-shadow: 0 2px 12px rgba(0,0,0,0.08);
   padding: 2em 1.5em;
 }
-.contato__form label,
-.contato__form input,
-.contato__form textarea,
-.contato__form button,
-.form-contato label,
-.form-contato input,
-.form-contato textarea,
-.form-contato button {
+
+.contato__label, .contato__input, .contato__textarea, .contato__button {
   width: 100%;
   max-width: 400px;
   box-sizing: border-box;
-  text-align: left;
 }
-.form-contato input,
-.form-contato textarea {
-  margin-bottom: 0.8em;
+
+.contato__input, .contato__textarea {
   padding: 0.7em 1em;
   border: 1.5px solid #e0c9a6;
   border-radius: 0.7em;
@@ -218,59 +173,103 @@ nav {
   background: #fff8f0;
   box-shadow: 0 1px 4px rgba(0,0,0,0.03);
 }
-.form-contato textarea {
+
+.contato__textarea {
   min-height: 120px;
   resize: vertical;
 }
-.form-contato button {
+
+.contato__button {
   text-align: center;
   background: #ffd9b3;
   color: #b85c00;
   border: none;
   border-radius: 1.5rem;
   padding: 0.7em 1.5em;
+  font-size: 1em;
+  font-weight: 600;
   cursor: pointer;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.04);
+  margin-top: 0.5em;
+  transition: background 0.2s, color 0.2s, box-shadow 0.2s;
 }
-.form-contato button:hover {
+
+.contato__button:hover {
   background: #ffb366;
   color: #fff;
   box-shadow: 0 2px 8px rgba(184,92,0,0.10);
 }
 
-/* ====== RESPONSIVIDADE ====== */
-@media (max-width: 700px) {
-  .main-nav,
-  .main-nav.responsive {
+/* ===== RESPONSIVIDADE ===== */
+@media (max-width: 900px) {
+  .main-nav {
     flex-direction: column;
     align-items: flex-start;
     gap: 0;
-    flex-wrap: wrap;
+    padding: 0.5rem 0.5rem;
   }
-  .main-nav__btn,
-  .nav-btn {
-    width: 100vw;
-    border-radius: 0;
-    text-align: left;
-    padding: 1.2em 1.5em;
-    font-size: 1.1em;
-    border-bottom: 1px solid #e0e0e0;
+
+  .main-nav__btn {
+    width: 100%;
+    padding: 0.5em 0.8em;
+    font-size: 1rem;
+    border-radius: 0.5rem;
+    display: none;
   }
+
+  .main-nav.menu--ativo .main-nav__btn {
+    display: block;
+  }
+
   .menu-toggle {
     display: flex;
     position: absolute;
-    top: 0.2rem;
-    right: 1vw;
-    z-index: 20;
+    top: 0.5rem;
+    right: 0.5rem;
+    width: 2rem;
+    height: 2rem;
   }
-  .servicos__lista {
-    flex-direction: column;
-    gap: 12px;
+
+  .menu-toggle span {
+    width: 1.5rem;
+    height: 0.25rem;
   }
-  .servicos__item,
-  .servicos .servico-btn {
-    width: 100%;
-    white-space: normal;
-    padding: 0.7em 1.1em;
-    margin: 0.2em 0.2em;
+
+  .banner__img {
+    width: 95%;
+    max-width: 350px;
+  }
+
+  .servicos__titulo {
+    font-size: 1.5rem;
+  }
+
+  .servicos__item {
+    font-size: 0.95rem;
+    padding: 0.5em 0.8em;
+  }
+
+  .contato__form {
+    width: 90%;
+    padding: 1.5em 1em;
+  }
+
+  .contato__button {
+    padding: 0.5em 1em;
+    font-size: 0.95rem;
+  }
+}
+
+@media (max-width: 500px) {
+  header {
+    padding: 10px 5px;
+    font-size: 1rem;
+  }
+  .main-nav__btn {
+    font-size: 0.95rem;
+    padding: 0.5em 0.7em;
+  }
+  .servicos__titulo {
+    font-size: 1.3rem;
   }
 }
