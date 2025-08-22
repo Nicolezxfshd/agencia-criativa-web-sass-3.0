@@ -200,66 +200,25 @@ header {
   box-shadow: 0 2px 8px rgba(184,92,0,0.10);
 }
 
-/* ===== RESPONSIVIDADE ===== */
-@media (max-width: 900px) {
-  .main-nav {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 0;
-    padding: 0.5rem 0.5rem;
-  }
+/* ===== RESPONSIVIDADE CORRIGIDA ===== */
 
-  .main-nav__btn {
-    width: 100%;
-    padding: 0.5em 0.8em;
-    font-size: 1rem;
-    border-radius: 0.5rem;
-    display: none;
-  }
-
-  .main-nav.menu--ativo .main-nav__btn {
-    display: block;
-  }
-
-  .menu-toggle {
-    display: flex;
-    position: absolute;
-    top: 0.5rem;
-    right: 0.5rem;
-    width: 2rem;
-    height: 2rem;
-  }
-
-  .menu-toggle span {
-    width: 1.5rem;
-    height: 0.25rem;
-  }
-
-  .banner__img {
-    width: 95%;
-    max-width: 350px;
-  }
-
-  .servicos__titulo {
-    font-size: 1.5rem;
-  }
-
+/* Celulares pequenos até 350px */
+@media (max-width: 350px) {
   .servicos__item {
-    font-size: 0.95rem;
-    padding: 0.5em 0.8em;
-  }
-
-  .contato__form {
-    width: 90%;
-    padding: 1.5em 1em;
-  }
-
-  .contato__button {
-    padding: 0.5em 1em;
-    font-size: 0.95rem;
+    font-size: 0.6rem;
+    padding: 0.4em 0.6em;
   }
 }
 
+/* Celulares até 400px */
+@media (max-width: 400px) {
+  .servicos__lista {
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
+/* Celulares até 500px */
 @media (max-width: 500px) {
   header {
     padding: 10px 5px;
@@ -273,3 +232,46 @@ header {
     font-size: 1.3rem;
   }
 }
+
+/* Tablets até 768px */
+@media (max-width: 768px) {
+  header {
+    padding: 12px 8px;
+    font-size: 1.1rem;
+  }
+  .main-nav {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0;
+    padding: 0.5rem 0.5rem;
+  }
+  .main-nav__btn {
+    width: 100%;
+    padding: 0.6em 0.9em;
+    font-size: 1rem;
+    border-radius: 0.5rem;
+    display: none;
+  }
+  .main-nav.menu--ativo .main-nav__btn {
+    display: block;
+  }
+  .menu-toggle {
+    display: flex;
+    position: absolute;
+    top: 0.5rem;
+    right: 0.5rem;
+    width: 2rem;
+    height: 2rem;
+  }
+  .menu-toggle span {
+    width: 1.5rem;
+    height: 0.25rem;
+  }
+  .servicos__titulo {
+    font-size: 1.5rem;
+  }
+  .servicos__item {
+    font-size: 1,6 rem;
+  }
+}
+
